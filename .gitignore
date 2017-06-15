@@ -1,4 +1,2 @@
-*/node_modules/
-*/cliproject/
-node_modules/
-cliproject/
+node_modules
+*/node_modules
