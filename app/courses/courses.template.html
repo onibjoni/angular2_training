@@ -1,0 +1,31 @@
+<h2>Courses</h2>
+    {{ title }}
+    <br/>
+    <input type="text" autoGrow [value]="title" (input)="myInput($event)"/>
+    <br/>
+    <input type="text" [(ngModel)]="title" />
+    <br/>
+    <button (click)="myClick()">Clear Title</button>
+    <br/>
+
+    <div class="glyphicon glyphicon-star"></div>
+    <!-- Injecting Favorite Component Here (favorite-change is my output event 
+    and is-star-clicked is my input event) -->
+    <favorite [is-star-clicked]="myFavorite" (favorite-change)="onFavoriteChange($event)"></favorite>    
+    <br/>
+
+    <!-- Adding my heart component -->
+
+    <heart [count]="totalLikes"></heart>
+    <br/>
+
+    <!-- Adding my voter component -->
+
+    <voter [voteCount]="myvotercount" [myvote]="mystartvote" (change)="onVoteChange($event)"></voter>
+    <br/>
+
+    <ul>
+        <li *ngFor="#course of courses">
+            {{ course }}
+        </li>
+    </ul>

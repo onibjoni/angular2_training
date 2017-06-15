@@ -1,0 +1,34 @@
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input ngControl="firstName" #firstName="ngForm" 
+            required minlength="3"
+            id="firstName" type="text" class="form-control">
+            
+            <!-- Only show if errors: firstName comes from the temp value 
+            #firstName: reference to ngControl directive on the input field -->
+            <div *ngIf="firstName.touched && firstName.errors">
+                <div class="alert alert-danger" *ngIf="firstName.errors.required">
+                    First name is required
+                </div>
+                <div class="alert alert-danger" *ngIf="firstName.errors.minlength">
+                    First name should be minimum 
+                    {{ firstName.errors.minlength.requiredLength }} characters
+                </div>
+            </div>            
+    </div>
+
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea 
+            ngControl="comment" #comment="ngForm" required
+            name="" id="comment" cols="30" rows="10" class="form-control">            
+        </textarea>
+        <div class="alert alert-danger" *ngIf="!comment.valid  && comment.touched">
+                Comment is required.
+        </div>        
+    </div>
+
+    <button [disabled]="!f.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>

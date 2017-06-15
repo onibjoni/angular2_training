@@ -1,0 +1,5 @@
+    <div class="glyphicon" 
+        [class.glyphicon-star]="isStarClicked" 
+        [class.glyphicon-star-empty]="!isStarClicked"
+     (click)="starClicked($event)">
+    </div>

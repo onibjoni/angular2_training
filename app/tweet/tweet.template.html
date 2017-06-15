@@ -1,0 +1,39 @@
+<style>
+h6{
+    font-size: 30px;
+    font-weight: 600;
+}
+.center{
+    margin: auto;
+    width: 50%;
+    border: 3px solid #73AD21;
+
+}
+</style>    
+
+<div class="center">
+    <h6>Raye's Twitter Application</h6>
+</div>
+<br>
+<ul>
+    <div *ngFor="#myTweet of tweets">
+        <div class="media">
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object" [src]="myTweet.tweetUrl" alt="No Image Avail">
+                </a>
+            </div>
+        
+            <div class="media-body">
+                <h4 class="media-heading">
+                    {{ myTweet.author + " " + myTweet.handle }} 
+                    </h4>
+                    <!-- Using properties here to bind html from string values -->
+                <h3 [innerHTML]="myTweet.tweetCaption">
+                    </h3>    
+                <heart [count]="myTweet.likeCount"></heart>
+            </div>
+        </div>
+       <br>    
+    </div>
+</ul> 
